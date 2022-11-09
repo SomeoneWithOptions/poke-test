@@ -98,13 +98,13 @@ input {
 
 @media screen and (max-width: 600px) {
   .pokeImages {
-    /* flex-direction: column; */
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
+   gap: 2rem ; 
+
   }
   img {
-    height: 120px;
-    width: 120px;
+    height: 200px;
+    width: 200px;
   }
   
 #__next {
