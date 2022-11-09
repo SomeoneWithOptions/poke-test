@@ -104,7 +104,7 @@ input {
 @media screen and (max-width: 600px) {
   .pokeImages {
     flex-direction: column;
-   gap: 2rem ; 
+   /* gap: 2rem ;  */
 
   }
   img {
