@@ -2,7 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState, useReducer, useRef, useEffect } from "react";
-import { Playfair_Display } from "@next/font/google";
+import { Nanum_Brush_Script, Nunito } from "@next/font/google";
+
+const nunito = Nunito();
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -21,7 +23,6 @@ export default function Home() {
       .then((data) => {
         setResults(data);
         setLoading(false);
-        console.log(data)
       });
   }, [query]);
 
@@ -38,11 +39,11 @@ export default function Home() {
   };
 
   return (
-    <div className = 'main'>
+    <div className ={nunito.className + ' main' }>
       <form onSubmit={handleSubmit}>
-        <h1>Type a Pokemon Number:</h1>
+        <h1 className={nunito.className}>Type a Pokemon Number:</h1>
         <input
-          className="pokeInput"
+          className={nunito.className + " pokeInput"}
           type="number"
           min={0}
           max={905}
@@ -55,7 +56,7 @@ export default function Home() {
         />
       </form>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button onClick={handlebutton}>Random Pokemon!</button>
+        <button className={ nunito.className} onClick={handlebutton}>Random Pokemon!</button>
       </div>
       <div className=".pokeResult">
         {loading ? (
