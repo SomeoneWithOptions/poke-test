@@ -11,8 +11,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, */
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 * {
@@ -20,28 +18,16 @@ body {
 }
 
 body {
-  background: hsla(280, 7%, 92%, 1);
 
-  background: linear-gradient(
-    270deg,
-    hsla(280, 7%, 92%, 1) 0%,
-    hsla(0, 12%, 65%, 1) 100%
-  );
+  background: hsla(212, 35%, 58%, 1);
 
-  background: -moz-linear-gradient(
-    270deg,
-    hsla(280, 7%, 92%, 1) 0%,
-    hsla(0, 12%, 65%, 1) 100%
-  );
+background: linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
 
-  background: -webkit-linear-gradient(
-    270deg,
-    hsla(280, 7%, 92%, 1) 0%,
-    hsla(0, 12%, 65%, 1) 100%
-  );
+background: -moz-linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EBE9EC", endColorstr="#B19C9C", GradientType=1 );
+background: -webkit-linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
 
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#6D90B9", endColorstr="#BBC7DC", GradientType=1 );
   color: white;
   display: flex;
   justify-content: center;
