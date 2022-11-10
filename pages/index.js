@@ -50,7 +50,7 @@ export default function Home() {
           type="number"
           min={0}
           max={905}
-          placeholder="Pokemon"
+          placeholder="#P"
           step={1}
           pattern={"[0-9]"}
           inputMode={"numeric"}

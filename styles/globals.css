@@ -19,15 +19,12 @@ body {
 
 body {
 
-  background: hsla(212, 35%, 58%, 1);
-
+background: hsla(212, 35%, 58%, 1);
 background: linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
-
 background: -moz-linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
-
 background: -webkit-linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
-
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#6D90B9", endColorstr="#BBC7DC", GradientType=1 );
+
   color: white;
   display: flex;
   justify-content: center;
@@ -52,9 +49,10 @@ form > * {
 
 input {
   position: relative;
-  color : #6c0b0b;
+  color: #6c0b0b;
   text-align: center;
   max-width: 50%;
+  min-width: 50%;
   border: none;
   font-size: 2rem;
   box-shadow: var(--shadow-elevation-medium);
@@ -65,7 +63,10 @@ input {
 input:focus{
   outline: #6c0b0b solid 1px;
 }
-
+input::placeholder {
+  color: #6c0b0b;
+  font-size: 1.5rem;
+}
 button {
   position: relative;
   padding: 0.5rem 1rem;
