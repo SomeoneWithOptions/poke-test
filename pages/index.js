@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState, useReducer, useRef, useEffect } from "react";
-import { Nanum_Brush_Script, Nunito } from "@next/font/google";
+import { Bonheur_Royale, Nanum_Brush_Script, Nunito } from "@next/font/google";
 
 const nunito = Nunito();
 
@@ -11,6 +11,8 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     if (!query) {
@@ -28,6 +30,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    buttonRef.current.focus()
     setQuery(search);
   };
 
@@ -56,7 +59,7 @@ export default function Home() {
         />
       </form>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button className={ nunito.className} onClick={handlebutton}>Random Pokemon!</button>
+        <button className={nunito.className} onClick={handlebutton} ref={buttonRef}>Random Pokemon!</button>
       </div>
       <div className=".pokeResult">
         {loading ? (
