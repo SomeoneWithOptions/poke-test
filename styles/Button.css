@@ -1,0 +1,43 @@
+button {
+  position: relative;
+  font-size: 2rem;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+}
+
+button::after {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 8px;
+  bottom: -8px;
+  right: -8px;
+  background: white;
+  z-index: -1;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0.5rem;
+}
+
+button:hover::after {
+  top: 5px;
+  left: 5px;
+  bottom: -5px;
+  right: -5px;
+  background: white;
+  z-index: -1;
+  transition: all 0.2s ease-in-out;
+}
+
+button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 600px) {
+  button {
+    font-size: 1.4rem;
+  }
+}

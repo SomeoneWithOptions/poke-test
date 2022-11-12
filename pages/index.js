@@ -57,7 +57,7 @@ export default function Home() {
         <button onClick={handlebutton} ref={buttonRef}>Random Pokemon!</button>
       </div>
       {loading ? (
-        <div>Loading...</div>
+        <div className="loading">Loading...</div>
       ) : (
         Object.keys(results).length > 0 && (
           <div className="pokeResult">
