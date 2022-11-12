@@ -1,80 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;700;900&display=swap");
+
 :root {
   --shadow-color: 0deg 0% 0%;
-
   --shadow-elevation-medium: 0.6px 0.5px 0.9px hsl(var(--shadow-color) / 0.15),
     2.2px 2px 3.3px -0.8px hsl(var(--shadow-color) / 0.15),
     5.6px 5.2px 8.6px -1.7px hsl(var(--shadow-color) / 0.15),
     13.8px 12.8px 21.2px -2.5px hsl(var(--shadow-color) / 0.15);
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
+  --primary-color: #6c0d0d;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  background: linear-gradient(0deg, #acc8e5 0%, #ced4de 100%);
 
-background: hsla(212, 35%, 58%, 1);
-background: linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
-background: -moz-linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
-background: -webkit-linear-gradient(90deg, hsla(212, 35%, 58%, 1) 0%, hsla(218, 32%, 80%, 1) 100%);
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#6D90B9", endColorstr="#BBC7DC", GradientType=1 );
-
-  color: white;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  font-family: "Montserrat", sans-serif;
 }
-h1 {
-  color: #6c0b0b;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-width: 400px;
-  gap: 2rem;
-  padding: 2rem;
+  justify-content: center;
 }
-form > * {
-  font-size: 1.5rem;
+
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--primary-color);
 }
 
 input {
-  position: relative;
-  color: #6c0b0b;
+  width: 30%;
   text-align: center;
-  max-width: 50%;
-  min-width: 50%;
-  border: none;
-  font-size: 2rem;
-  box-shadow: var(--shadow-elevation-medium);
-  border : solid 2px #6c0b0b;
+  font-size: 2.8rem;
   background-color: transparent;
+  border: 2px solid var(--primary-color);
+  margin: 1rem 0;
+  color: var(--primary-color);
+  border-radius: 0.5rem;
 }
 
-input:focus{
-  outline: #6c0b0b solid 1px;
+input:focus {
+  outline: 1px solid var(--primary-color);
 }
-input::placeholder {
-  color: #6c0b0b;
-  font-size: 1.5rem;
-}
+
 button {
   position: relative;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  border: 3px solid #6c0b0b;
-  background: transparent;
-  color: #6c0b0b;
+  font-size: 2rem;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 0.5rem;
   cursor: pointer;
+  padding: 0.5rem 2rem;
 }
 
 button::after {
@@ -87,7 +81,9 @@ button::after {
   background: white;
   z-index: -1;
   transition: all 0.2s ease-in-out;
+  border-radius: 0.5rem;
 }
+
 button:hover::after {
   top: 5px;
   left: 5px;
@@ -98,40 +94,57 @@ button:hover::after {
   transition: all 0.2s ease-in-out;
 }
 
-div h2 {
-  color: #6c0b0b;
-  text-align: center;
-  font-weight: 400;
-  font-size: 2rem;
+button:focus {
+  outline: none;
 }
 
-div img {
-  align-self: center;
+.pokeResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 600px;
 }
+
+.pokeResult h2 {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
 .pokeImages {
   display: flex;
+  align-items: center;
   justify-content: space-around;
+  width: 100%;
 }
-
 
 @media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    font-size: 1.4rem;
+    width: 40%;
+  }
+
+  button {
+    font-size: 1.4rem;
+  }
+
+  .pokeResult {
+    width: 100%;
+  }
+
+  .pokeResult h2 {
+    font-size: 1.8rem;
+  }
+
   .pokeImages {
+    width: 100%;
     flex-direction: column;
-    /* gap: 2rem ;  */
   }
-  img {
-    height: 200px;
-    width: 200px;
-  }
-
-  #__next {
-    /* border : 2px solid red ; */
-    align-self: baseline;
-  }
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
 }

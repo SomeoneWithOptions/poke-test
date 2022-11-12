@@ -1,10 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import { useState, useReducer, useRef, useEffect } from "react";
-import { Bonheur_Royale, Nanum_Brush_Script, Nunito } from "@next/font/google";
-
-const nunito = Nunito();
+import { PokeImage } from "./PokeImage";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -12,7 +7,7 @@ export default function Home() {
   const [results, setResults] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const buttonRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     if (!query) {
@@ -30,7 +25,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    buttonRef.current.focus()
+    titleRef.current.focus();
     setQuery(search);
   };
 
@@ -42,15 +37,15 @@ export default function Home() {
   };
 
   return (
-    <div className ={nunito.className + ' main' }>
+    <div className="main">
       <form onSubmit={handleSubmit}>
-        <h1 className={nunito.className}>Type a Pokemon Number:</h1>
+        <h1 ref={titleRef}>Type a Pokemon Number:</h1>
         <input
-          className={nunito.className + " pokeInput"}
+          className="pokeInput"
           type="number"
           min={0}
           max={905}
-          placeholder="#P"
+          placeholder="# P"
           step={1}
           pattern={"[0-9]"}
           inputMode={"numeric"}
@@ -58,35 +53,22 @@ export default function Home() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button className={nunito.className} onClick={handlebutton} ref={buttonRef}>Random Pokemon!</button>
+      <div>
+        <button onClick={handlebutton}>Random Pokemon!</button>
       </div>
-      <div className=".pokeResult">
-        {loading ? (
-          <div style={{ textAlign: "center", fontSize: "3rem" }}>
-            Loading...
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        Object.keys(results).length > 0 && (
+          <div className="pokeResult">
+            <h2>{results.name}</h2>
+            <div className="pokeImages">
+              <PokeImage number={query} shiny={false} />
+              <PokeImage number={query} shiny={true} />
+            </div>
           </div>
-        ) : (
-          Object.keys(results).length > 0 && (
-            <>
-              <h2>{results.name}</h2>
-              <div className="pokeImages">
-                <img
-                  src={results.sprites?.front_default}
-                  width={200}
-                  height={200}
-                />
-
-                <img
-                  src={results.sprites?.front_shiny}
-                  width={200}
-                  height={200}
-                />
-              </div>
-            </>
-          )
-        )}
-      </div>
+        )
+      )}
     </div>
   );
 }
