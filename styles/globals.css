@@ -123,12 +123,13 @@ button:focus {
 
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
   }
 
   input {
-    font-size: 1.4rem;
-    width: 40%;
+    font-size: 1.8rem;
+    width: 25%;
   }
 
   button {
@@ -137,10 +138,12 @@ button:focus {
 
   .pokeResult {
     width: 100%;
+    margin: .5rem;
   }
 
   .pokeResult h2 {
     font-size: 1.8rem;
+    margin-bottom: .5rem;
   }
 
   .pokeImages {

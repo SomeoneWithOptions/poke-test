@@ -7,7 +7,7 @@ export default function Home() {
   const [results, setResults] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const titleRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     if (!query) {
@@ -25,7 +25,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    titleRef.current.focus();
+    buttonRef.current.focus();
     setQuery(search);
   };
 
@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="main">
       <form onSubmit={handleSubmit}>
-        <h1 ref={titleRef}>Type a Pokemon Number:</h1>
+        <h1>Type a Pokemon Number:</h1>
         <input
           className="pokeInput"
           type="number"
@@ -54,7 +54,7 @@ export default function Home() {
         />
       </form>
       <div>
-        <button onClick={handlebutton}>Random Pokemon!</button>
+        <button onClick={handlebutton} ref={buttonRef}>Random Pokemon!</button>
       </div>
       {loading ? (
         <div>Loading...</div>
