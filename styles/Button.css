@@ -1,6 +1,6 @@
 button {
   position: relative;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem); ;   
   background-color: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
@@ -34,10 +34,4 @@ button:hover::after {
 
 button:focus {
   outline: none;
-}
-
-@media screen and (max-width: 600px) {
-  button {
-    font-size: 1.4rem;
-  }
 }
