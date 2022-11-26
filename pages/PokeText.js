@@ -6,3 +6,5 @@ export const PokeText = ({ height, weight }) => {
        </div>
    )
 }
+
+export default PokeText
