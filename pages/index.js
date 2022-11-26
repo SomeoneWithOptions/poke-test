@@ -1,5 +1,6 @@
 import { useState, useReducer, useRef, useEffect } from "react";
 import { PokeImage } from "./PokeImage";
+import { PokeText } from "./PokeText";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -27,6 +28,7 @@ export default function Home() {
     e.preventDefault();
     buttonRef.current.focus();
     setQuery(search);
+    console.log(results);
   };
 
   const handlebutton = (e) => {
@@ -37,15 +39,15 @@ export default function Home() {
   };
 
   return (
-    <div className="main">
+    <div className='main'>
       <form onSubmit={handleSubmit}>
         <h1>Type a Pokemon Number:</h1>
         <input
-          className="pokeInput"
-          type="number"
+          className='pokeInput'
+          type='number'
           min={0}
           max={905}
-          placeholder="# P"
+          placeholder='# P'
           step={1}
           pattern={"[0-9]"}
           inputMode={"numeric"}
@@ -54,18 +56,21 @@ export default function Home() {
         />
       </form>
       <div>
-        <button onClick={handlebutton} ref={buttonRef}>Random Pokemon!</button>
+        <button onClick={handlebutton} ref={buttonRef}>
+          Random Pokemon!
+        </button>
       </div>
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className='loading'>Loading...</div>
       ) : (
         Object.keys(results).length > 0 && (
-          <div className="pokeResult">
+          <div className='pokeResult'>
             <h2>{results.name}</h2>
-            <div className="pokeImages">
+            <div className='pokeImages'>
               <PokeImage number={query} shiny={false} />
               <PokeImage number={query} shiny={true} />
             </div>
+            <PokeText weight={results.weight} height={results.height} />
           </div>
         )
       )}
